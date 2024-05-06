@@ -1,9 +1,9 @@
   
   export abstract class CustomError extends Error {
-   abstract statuscode:number;
-    constructor(messgae:string,) {
+   abstract statusCode:number;
+    constructor(public message:string) {
        
-        super(messgae);
+        super(message);
 
     }
     abstract serializeErrors(): { message: string; field?: string }[];
