@@ -4,8 +4,13 @@ import {promisify} from 'util'
 export class Password{
     static async toHash(password:string ) {
         const salt =randomBytes(8).toString('hex');
-        const buff = await asyncScrypt(password,salt,64);
+        const buff = (await asyncScrypt(password,salt,64)) as Buffer;
+         return `${buff.toString('hex')}.${salt}`
     }
-    static compare(enteredPassword:string, storedPassword:string) {}
+    static async compare(suppliedPassword:string, storedPassword:string) :Promise<boolean>{
+        const [hashedpassword, salt] = storedPassword.split('.');
+        const buff = (await asyncScrypt(suppliedPassword,salt,64)) as Buffer;
+        return  buff.toString('hex') === hashedpassword;
+    }
 
 }
