@@ -1,11 +1,14 @@
 {
   "compilerOptions": {
-    "target": "es2016",
-    "module": "commonjs",
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-    "strict": true,
-    "skipLibCheck": true,
-    "noEmit": true
-  }
+    "target": "es2018" /* Specify ECMAScript target version */,
+    "module": "commonjs" /* Specify module system (Node.js uses CommonJS) */,
+    "strict": true /* Enable all strict type-checking options */,
+    "esModuleInterop": true /* Enable compatibility with CommonJS modules */,
+    "skipLibCheck": true /* Skip type checking of declaration files (.d.ts) */,
+    "forceConsistentCasingInFileNames": true /* Ensure consistent casing in file names */
+  },
+  "include": ["src/**/*.ts"] /* Include TypeScript files to compile */,
+  "exclude": [
+    "node_modules"
+  ] 
 }
